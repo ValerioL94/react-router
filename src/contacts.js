@@ -71,8 +71,3 @@ async function fakeNetwork(key) {
     setTimeout(res, Math.random() * 800);
   });
 }
-
-export async function loader() {
-  const contacts = await getContacts();
-  return { contacts };
-}

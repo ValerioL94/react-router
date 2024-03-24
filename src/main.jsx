@@ -5,7 +5,11 @@ import './index.css';
 import Root from './routes/root';
 import ErrorPage from './error-page';
 import Contact from './routes/contact';
-import { loader as rootLoader } from './contacts';
+import {
+  contactsLoader as rootLoader,
+  action as rootAction,
+  contactLoader,
+} from '../loaders';
 
 const router = createBrowserRouter([
   {
@@ -13,10 +17,12 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
+    action: rootAction,
     children: [
       {
         path: 'contacts/:contactId',
         element: <Contact />,
+        loader: contactLoader,
       },
     ],
   },
