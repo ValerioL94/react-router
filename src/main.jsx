@@ -11,6 +11,7 @@ import {
   contactLoader,
   editAction,
   destroyAction,
+  contactAction,
 } from '../loaders-actions';
 import EditContact from './routes/edit';
 import Index from './routes/index';
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
         path: 'contacts/:contactId',
         element: <Contact />,
         loader: contactLoader,
+        action: contactAction,
       },
       {
         path: 'contacts/:contactId/edit',
