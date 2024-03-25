@@ -13,7 +13,7 @@ export async function contactsLoader() {
 
 export async function createAction() {
   const contact = await createContact();
-  return { contact };
+  return redirect(`/contacts/${contact.id}/edit`);
 }
 
 export async function contactLoader({ params }) {
