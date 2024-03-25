@@ -13,7 +13,7 @@ import {
   destroyAction,
 } from '../loaders-actions';
 import EditContact from './routes/edit';
-
+import Index from './routes/index';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +22,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     action: rootAction,
     children: [
+      { index: true, element: <Index /> },
       {
         path: 'contacts/:contactId',
         element: <Contact />,
@@ -34,8 +35,9 @@ const router = createBrowserRouter([
         action: editAction,
       },
       {
-        path: 'contacts/contactId/destroy',
+        path: 'contacts/:contactId/destroy',
         action: destroyAction,
+        // errorElement: <div>Oops! There was an error.</div>
       },
     ],
   },

@@ -30,6 +30,7 @@ export async function editAction({ request, params }) {
 }
 
 export async function destroyAction({ params }) {
+  // throw new Error('oh dang!');
   await deleteContact(params.contactId);
   return redirect('/');
 }
